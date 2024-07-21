@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "601929669471",
+    "project_id": "quick-workout-6d08f",
+    "storage_bucket": "quick-workout-6d08f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601929669471:android:a2ec6a00c8d64c601874ea",
+        "android_client_info": {
+          "package_name": "com.khu.qu1ckw0rk0ut"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJPaJZ63k55vTr1ltjJayFLXsrz5AXuhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
