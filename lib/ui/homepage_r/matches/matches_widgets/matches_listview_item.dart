@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/matches/matches_item.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/matches_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
 import 'package:quick_workout/widgets/homepage/delete_cancel_mbsheet.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main16.dart';
@@ -28,7 +29,7 @@ class MatchesListViewItemWidget extends StatelessWidget {
         onPress: () {
           showDeleteConfirmation(context, () {
             providerMatches.deleteItem(index);
-          }, 'Your match');
+          }, context.t.matches.delete[1]);
         },
         child: Container(
           clipBehavior: Clip.antiAlias,

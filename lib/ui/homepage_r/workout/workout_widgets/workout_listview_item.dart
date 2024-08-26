@@ -5,6 +5,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/workout/workout_item.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/workout_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/workout/edit_workout.dart';
 import 'package:quick_workout/ui/homepage_r/workout/workout_card.dart';
 import 'package:quick_workout/ui/homepage_r/workout/workout_widgets/workout_mbsheet.dart';
@@ -51,7 +52,7 @@ class WorkoutListViewItemWidget extends StatelessWidget {
               onPressed: (context) {
                 showDeleteConfirmation(context, () {
                   providerWorkout.deleteItem(index);
-                }, 'Your workout');
+                }, context.t.workout.delete[1]);
               },
               backgroundColor: AppColors.deleteRed,
               foregroundColor: Colors.white,
@@ -72,13 +73,13 @@ class WorkoutListViewItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   TextSecond13Widget(
-                      text:
-                          '${items.isNotEmpty ? items[index].minutes : '40'} minutes'),
+                      text: (items.isNotEmpty ? items[index].minutes : '40') +
+                          context.t.workout.time.minutes),
                   SizedBox(
                     height: 4.h,
                   ),
                   TextMain17Widget(
-                    text: items.isNotEmpty ? items[index].title : 'Title',
+                    text: items.isNotEmpty ? items[index].title : context.t.workout.edit[2],
                     maxLines: 2,
                   )
                 ],

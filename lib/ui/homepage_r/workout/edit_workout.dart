@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/workout_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/workout/timepicker/time_picker.dart';
 import 'package:quick_workout/ui/homepage_r/workout/timepicker/time_picker_mbsheet.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
@@ -15,7 +16,8 @@ import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dar
 class EditWorkout extends StatelessWidget {
   final int index;
   const EditWorkout({
-    super.key, required this.index,
+    super.key,
+    required this.index,
   });
 
   @override
@@ -25,7 +27,7 @@ class EditWorkout extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(text: 'Editing', maxLines: 1),
+          child: TextMain17Widget(text: context.t.workout.edit[0], maxLines: 1),
         ),
         SizedBox(
           height: 16.h,
@@ -34,7 +36,7 @@ class EditWorkout extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Training time',
+              context.t.workout.edit[1],
               style: TextStyle(
                   fontSize: 16.sp,
                   fontFamily: AppFonts.sfPro,
@@ -55,7 +57,7 @@ class EditWorkout extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6.w)),
                 padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 11.w),
                 child: TextSecond17Widget(
-                    text: '${providerWorkout.minutesEdit} minutes',
+                    text: providerWorkout.minutesEdit + context.t.workout.time.minutes,
                     maxLines: 1),
               ),
             )
@@ -71,7 +73,7 @@ class EditWorkout extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerWorkout.checkControllerEmpty,
             controller: providerWorkout.controllerTitle,
-            hintText: 'Title',
+            hintText: context.t.workout.edit[2],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -79,14 +81,14 @@ class EditWorkout extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerWorkout.checkControllerEmpty,
             controller: providerWorkout.controllerDescription,
-            hintText: 'Description',
+            hintText: context.t.workout.edit[3],
             maxLines: 10),
         SizedBox(
           height: 24.h,
         ),
         BouncingButtonWidget(
             checkEmpty: providerWorkout.checkAnyControllerEmpty,
-            buttonName: 'Save',
+            buttonName: context.t.workout.edit[4],
             onPress: () {
               providerWorkout.saveEditWorkout(index);
               Navigator.pop(context);

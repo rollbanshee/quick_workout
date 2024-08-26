@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dart';
 
@@ -21,7 +22,7 @@ class EditDeleteRowWidget extends StatelessWidget {
         Expanded(
             flex: 1,
             child: BouncingButtonWidget(
-              buttonName: 'Edit',
+              buttonName: context.t.team.player_mbs[2],
               onPress: onPressEdit,
             )),
         SizedBox(
@@ -42,7 +43,7 @@ class EditDeleteRowWidget extends StatelessWidget {
                 ),
                 child: Text(
                   textAlign: TextAlign.center,
-                  'Delete',
+                  context.t.team.player_mbs[3],
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 16.sp,

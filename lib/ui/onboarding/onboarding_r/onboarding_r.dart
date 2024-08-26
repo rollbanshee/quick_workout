@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/providers/onboarding_r_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/bottomnavbar/bottomnavbar.dart';
 import 'package:quick_workout/widgets/text_widgets/text_second15.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dart';
@@ -43,12 +44,11 @@ class OnboardingR extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const TextMain28Widget(mainText: 'Player information'),
+                    TextMain28Widget(mainText: context.t.onboarding[0]),
                     SizedBox(
                       height: 6.h,
                     ),
-                    const TextSecond15Widget(
-                        text: 'Add detailed player information'),
+                    TextSecond15Widget(text: context.t.onboarding[1]),
                     const Spacer(),
                     // SizedBox(
                     //   height: 112.h,
@@ -63,7 +63,7 @@ class OnboardingR extends StatelessWidget {
                                     builder: (context) => const BottomNavBar()))
                             : null;
                       },
-                      buttonName: 'Next',
+                      buttonName: context.t.onboarding[2],
                     ),
                     DotsWidget(provider: providerOnboardingR)
                   ],

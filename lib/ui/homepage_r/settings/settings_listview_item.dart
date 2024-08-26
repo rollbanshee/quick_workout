@@ -3,6 +3,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/main_features_imports.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main17.dart';
@@ -41,9 +42,7 @@ class SettingsListViewItem extends StatelessWidget {
               SizedBox(
                 width: 8.w,
               ),
-              TextMain17Widget(
-                  text: providerSettings.mapItems['labels'][index],
-                  maxLines: 1),
+              TextMain17Widget(text: t.settings.items[index], maxLines: 1),
               const Spacer(),
               Icon(
                 Icons.arrow_forward_ios_rounded,

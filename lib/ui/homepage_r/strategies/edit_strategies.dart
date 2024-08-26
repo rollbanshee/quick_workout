@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/strategies_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dart';
 import 'package:quick_workout/widgets/homepage/textfield.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main17.dart';
@@ -17,9 +18,9 @@ class EditStrategies extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(
+          child: TextMain17Widget(
             maxLines: 1,
-            text: 'Editing',
+            text: context.t.strategies.edit[0],
           ),
         ),
         Padding(
@@ -27,26 +28,26 @@ class EditStrategies extends StatelessWidget {
           child: TextFieldWidget(
               onChanged: providerStrategies.checkControllerEmpty,
               controller: providerStrategies.controllerTitle,
-              hintText: 'Title',
+              hintText: context.t.strategies.edit[1],
               maxLines: 1),
         ),
         TextFieldWidget(
             onChanged: providerStrategies.checkControllerEmpty,
             // maxLength: 4,
             controller: providerStrategies.controllerAbbreviation,
-            hintText: 'Abbreviation',
+            hintText: context.t.strategies.edit[2],
             maxLines: 1),
         Padding(
           padding: EdgeInsets.only(top: 16.h, bottom: 24.h),
           child: TextFieldWidget(
               onChanged: providerStrategies.checkControllerEmpty,
               controller: providerStrategies.controllerText,
-              hintText: 'Text',
+              hintText: context.t.strategies.edit[3],
               maxLines: 10),
         ),
         BouncingButtonWidget(
             checkEmpty: providerStrategies.checkAnyControllerEmpty,
-            buttonName: 'Save',
+            buttonName: context.t.strategies.edit[4],
             onPress: () {
               providerStrategies.saveEditStrategies(index);
               Navigator.pop(context);

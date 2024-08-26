@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/team_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
 import 'package:quick_workout/widgets/homepage/circle_avatar.dart';
 import 'package:quick_workout/widgets/homepage/textfield.dart';
@@ -22,7 +23,7 @@ class EditPlayer extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
           child: Text(
-            'Editing',
+            context.t.team.player_edit_mbs[0],
             style: TextStyle(
                 fontFamily: AppFonts.sfPro,
                 fontSize: 17.sp,
@@ -47,7 +48,7 @@ class EditPlayer extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerTeam.checkControllerEmpty,
             controller: providerTeam.controllerPlayerName,
-            hintText: 'Name Player',
+            hintText: context.t.team.player_edit_mbs[1],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -55,7 +56,7 @@ class EditPlayer extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerTeam.checkControllerEmpty,
             controller: providerTeam.controllerPlayerPosition,
-            hintText: 'Player Position',
+            hintText: context.t.team.player_edit_mbs[2],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -64,7 +65,7 @@ class EditPlayer extends StatelessWidget {
             keyboardType: TextInputType.number,
             onChanged: providerTeam.checkControllerEmpty,
             controller: providerTeam.controllerAge,
-            hintText: 'Age',
+            hintText: context.t.team.player_edit_mbs[3],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -73,7 +74,7 @@ class EditPlayer extends StatelessWidget {
             keyboardType: TextInputType.number,
             onChanged: providerTeam.checkControllerEmpty,
             controller: providerTeam.controllerSalary,
-            hintText: 'Salary',
+            hintText: context.t.team.player_edit_mbs[4],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -81,13 +82,13 @@ class EditPlayer extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerTeam.checkControllerEmpty,
             controller: providerTeam.controllerDescription,
-            hintText: 'Description',
+            hintText: context.t.team.player_edit_mbs[5],
             maxLines: 10),
         Padding(
           padding: EdgeInsets.only(top: 24.h, bottom: 12.h),
           child: BouncingButtonWidget(
               checkEmpty: providerTeam.checkAnyControllerEmpty,
-              buttonName: 'Save',
+              buttonName: context.t.team.player_edit_mbs[6],
               onPress: () {
                 providerTeam.saveEditPlayer(index);
                 Navigator.pop(context);

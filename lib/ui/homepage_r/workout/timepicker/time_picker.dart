@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main17.dart';
 
@@ -15,8 +16,8 @@ class TimePicker extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(
-            text: 'Training Time',
+          child: TextMain17Widget(
+            text: context.t.workout.time.time_picker[0],
             maxLines: 1,
           ),
         ),
@@ -40,7 +41,7 @@ class TimePicker extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 24.h),
           child: BouncingButtonWidget(
-              buttonName: 'Save',
+              buttonName: context.t.workout.time.time_picker[1],
               onPress: () {
                 onPress();
                 Navigator.pop(context);

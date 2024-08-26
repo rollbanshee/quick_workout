@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 
 Future<dynamic> showDeleteConfirmation(
     BuildContext context, VoidCallback onPress, String text) {
@@ -10,7 +11,7 @@ Future<dynamic> showDeleteConfirmation(
       context: context,
       builder: (BuildContext context) => CupertinoAlertDialog(
             title: Text(
-              'Deletion confirmation',
+              t.team.player_delete_confirmation[0],
               style: TextStyle(
                   fontSize: 17.sp,
                   color: Colors.black,
@@ -18,7 +19,7 @@ Future<dynamic> showDeleteConfirmation(
                   fontFamily: AppFonts.sfPro),
             ),
             content: Text(
-              '$text will be permanently deleted',
+              text,
               style: TextStyle(
                   fontSize: 13.sp,
                   color: Colors.black,
@@ -30,7 +31,7 @@ Future<dynamic> showDeleteConfirmation(
                     Navigator.pop(context, false);
                   },
                   child: Text(
-                    'Cancel',
+                    t.team.player_delete_confirmation[2],
                     style: TextStyle(
                         fontSize: 17.sp,
                         fontFamily: AppFonts.sfPro,
@@ -42,7 +43,7 @@ Future<dynamic> showDeleteConfirmation(
                     Navigator.pop(context, true);
                   },
                   child: Text(
-                    'Delete',
+                    context.t.team.player_delete_confirmation[3],
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 17.sp,

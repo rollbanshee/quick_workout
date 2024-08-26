@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/workout_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/workout/timepicker/time_picker.dart';
 import 'package:quick_workout/ui/homepage_r/workout/timepicker/time_picker_mbsheet.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
@@ -24,7 +25,8 @@ class AddNewWorkout extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(text: 'New Workout', maxLines: 1),
+          child:
+              TextMain17Widget(text: context.t.workout.new_workout_mbs[0], maxLines: 1),
         ),
         SizedBox(
           height: 16.h,
@@ -33,7 +35,7 @@ class AddNewWorkout extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Training time',
+              context.t.workout.new_workout_mbs[1],
               style: TextStyle(
                   fontSize: 16.sp,
                   fontFamily: AppFonts.sfPro,
@@ -54,7 +56,8 @@ class AddNewWorkout extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6.w)),
                 padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 11.w),
                 child: TextSecond17Widget(
-                    text: '${providerWorkout.minutesAddNew} minutes',
+                    text:
+                        providerWorkout.minutesAddNew + context.t.workout.time.minutes,
                     maxLines: 1),
               ),
             )
@@ -70,7 +73,7 @@ class AddNewWorkout extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerWorkout.checkControllerEmpty,
             controller: providerWorkout.controllerTitle,
-            hintText: 'Title',
+            hintText: context.t.workout.new_workout_mbs[2],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -78,14 +81,14 @@ class AddNewWorkout extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerWorkout.checkControllerEmpty,
             controller: providerWorkout.controllerDescription,
-            hintText: 'Description',
+            hintText: context.t.workout.new_workout_mbs[3],
             maxLines: 10),
         SizedBox(
           height: 24.h,
         ),
         BouncingButtonWidget(
             checkEmpty: providerWorkout.checkAnyControllerEmpty,
-            buttonName: 'Add',
+            buttonName: context.t.workout.new_workout_mbs[4],
             onPress: () {
               providerWorkout.addWorkout();
               Navigator.pop(context);

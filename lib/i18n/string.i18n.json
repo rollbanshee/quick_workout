@@ -1,0 +1,144 @@
+{
+    "onboarding": [
+        "Player information",
+        "Add detailed player information",
+        "Next"
+    ],
+    "team": {
+        "appbar": "Team",
+        "empty_screen": [
+            "Empty",
+            "You don't have any team\nadded yet"
+        ],
+        "new_player_mbs": [
+            "New Player",
+            "Name Player",
+            "Player Position",
+            "Age",
+            "Salary",
+            "Description",
+            "Add"
+        ],
+        "player_mbs": [
+            "Age",
+            "Salary",
+            "Edit",
+            "Delete"
+        ],
+        "player_edit_mbs": [
+            "Editing",
+            "Name Player",
+            "Player Position",
+            "Age",
+            "Salary",
+            "Description",
+            "Save"
+        ],
+        "player_delete_confirmation": [
+            "Deletion confirmation",
+            "Player data will be permanently deleted",
+            "Cancel",
+            "Delete"
+        ]
+    },
+    "workout": {
+        "appbar": "Workout",
+        "time": {
+            "start": "Start of training",
+            "end": "End of training",
+            "time_picker": [
+                "Training Time",
+                "Save"
+            ],
+            "minutes": " minutes"
+        },
+        "empty_screen": [
+            "Empty",
+            "You don't have any workouts\nadded yet"
+        ],
+        "new_workout_mbs": [
+            "New Workout",
+            "Training Time",
+            "Title",
+            "Description",
+            "Add"
+        ],
+        "edit": [
+            "Editing",
+            "Training Time",
+            "Title",
+            "Description",
+            "Save"
+        ],
+        "delete": [
+            "Deletion confirmation",
+            "Workout will be permanently deleted",
+            "Cancel",
+            "Delete"
+        ]
+    },
+    "strategies": {
+        "appbar": "Strategies",
+        "empty_screen": [
+            "Empty",
+            "You don't have any strategies\nadded yet"
+        ],
+        "new_strategy_mbs": [
+            "New Strategy",
+            "Title",
+            "Abbreviation",
+            "Text",
+            "Add"
+        ],
+        "edit": [
+            "Editing",
+            "Title",
+            "Abbreviation",
+            "Text",
+            "Save"
+        ],
+        "delete": [
+            "Deletion confirmation",
+            "Strategy will be permanently deleted",
+            "Cancel",
+            "Delete"
+        ]
+    },
+    "matches": {
+        "appbar": "Matches",
+        "currency": [
+            "Winning currency",
+            "EUR/USD"
+        ],
+        "empty_screen": [
+            "Empty",
+            "You don't have any matches\nadded yet"
+        ],
+        "new_match_mbs": [
+            "New Match",
+            {
+                "date": [
+                    "Match date",
+                    "Save"
+                ]
+            },
+            "Game Score",
+            "Winning Amount",
+            "Add"
+        ],
+        "delete": [
+            "Deletion confirmation",
+            "Match will be permanently deleted",
+            "Cancel",
+            "Delete"
+        ]
+    },
+    "settings": {
+        "appbar": "Settings",
+        "items": [
+            "Usage Policy",
+            "Share App",
+            "Rate Us"
+        ]
+    }
+}

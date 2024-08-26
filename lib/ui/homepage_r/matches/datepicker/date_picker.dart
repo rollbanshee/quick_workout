@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/matches_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main17.dart';
 
@@ -18,8 +19,8 @@ class DatePicker extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(
-            text: 'Match Date',
+          child: TextMain17Widget(
+            text: context.t.matches.new_match_mbs[1].date[0],
             maxLines: 1,
           ),
         ),
@@ -45,7 +46,7 @@ class DatePicker extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 24.h),
           child: BouncingButtonWidget(
-              buttonName: 'Save',
+              buttonName: context.t.matches.new_match_mbs[1].date[1],
               onPress: () {
                 provider.saveDate();
                 Navigator.pop(context);

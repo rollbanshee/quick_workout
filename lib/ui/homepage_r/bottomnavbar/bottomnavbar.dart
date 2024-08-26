@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/matches/matches.dart';
 import 'package:quick_workout/ui/homepage_r/settings/settings.dart';
 import 'package:quick_workout/ui/homepage_r/strategies/strategies.dart';
@@ -17,12 +18,12 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _currentIndex = 0;
-  final List<Widget> _widgets = const [
-    Team(),
-    Workout(),
-    Strategies(),
-    Matches(),
-    Settings()
+  final List<Widget> _widgets = [
+    const Team(),
+    const Workout(),
+    const Strategies(),
+    const Matches(),
+    const Settings()
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(AppSvgs.team),
               ),
-              label: "Team",
+              label: context.t.team.appbar,
               activeIcon: Padding(
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(
@@ -74,7 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 padding: EdgeInsets.symmetric(vertical: 5.5.h),
                 child: SvgPicture.asset(AppSvgs.workout),
               ),
-              label: "Workout",
+              label: context.t.workout.appbar,
               activeIcon: Padding(
                 padding: EdgeInsets.symmetric(vertical: 5.5.h),
                 child: SvgPicture.asset(
@@ -89,7 +90,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(AppSvgs.strategies),
               ),
-              label: "Strategies",
+              label: context.t.strategies.appbar,
               activeIcon: Padding(
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(
@@ -104,7 +105,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(AppSvgs.matches),
               ),
-              label: "Matches",
+              label: context.t.matches.appbar,
               activeIcon: Padding(
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(
@@ -119,7 +120,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(AppSvgs.settings),
               ),
-              label: "Settings",
+              label: context.t.settings.appbar,
               activeIcon: Padding(
                 padding: EdgeInsets.symmetric(vertical: 7.h),
                 child: SvgPicture.asset(

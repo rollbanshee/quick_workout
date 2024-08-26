@@ -5,6 +5,7 @@ import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/team/player_info.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/team_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/team/add_new_player.dart';
 import 'package:quick_workout/ui/homepage_r/team/player_card.dart';
 import 'package:quick_workout/widgets/homepage/app_mbsheet.dart';
@@ -29,14 +30,15 @@ class Team extends StatelessWidget {
             children: [
               AppBarWIdget(
                   provider: providerTeam,
-                  title: 'Team',
+                  title: context.t.team.appbar,
                   onPress: () {
                     providerTeam.clearTextControllers();
                     showAppModalBottomSheet(context, const AddNewPlayer());
                   }),
               cards.isEmpty
-                  ? const EmptyScreenWidget(
-                      screenName: 'team', svgAssetName: AppSvgs.teamEmpty)
+                  ? EmptyScreenWidget(
+                      text: t.team.empty_screen[1],
+                      svgAssetName: AppSvgs.teamEmpty)
                   : Flexible(
                       child: Padding(
                         padding: EdgeInsets.only(top: 16.h),

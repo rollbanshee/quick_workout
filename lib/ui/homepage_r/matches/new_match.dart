@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/matches_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/matches/datepicker/date_picker.dart';
 import 'package:quick_workout/ui/homepage_r/matches/datepicker/date_picker_mbsheet.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button.dart';
@@ -25,7 +26,8 @@ class NewMatch extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(text: 'New Match', maxLines: 1),
+          child:
+              TextMain17Widget(text: context.t.matches.new_match_mbs[0], maxLines: 1),
         ),
         SizedBox(
           height: 16.h,
@@ -33,7 +35,8 @@ class NewMatch extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const TextMain16Widget(text: 'Match date', maxLines: 1),
+            TextMain16Widget(
+                text: context.t.matches.new_match_mbs[1].date[0], maxLines: 1),
             BouncingButton(
               onPress: () {
                 showDatePickerModalBottomSheet(
@@ -67,7 +70,7 @@ class NewMatch extends StatelessWidget {
         TextFieldWidget(
             onChanged: providerMatches.checkControllerEmpty,
             controller: providerMatches.controllerGameScore,
-            hintText: 'Game Score',
+            hintText: context.t.matches.new_match_mbs[2],
             maxLines: 1),
         SizedBox(
           height: 16.h,
@@ -76,15 +79,15 @@ class NewMatch extends StatelessWidget {
             keyboardType: TextInputType.number,
             onChanged: providerMatches.checkControllerEmpty,
             controller: providerMatches.controllerWinningAmount,
-            hintText: 'Winning Amount',
+            hintText: context.t.matches.new_match_mbs[3],
             maxLines: 1),
         Padding(
           padding: EdgeInsets.symmetric(vertical: 24.h),
           child: BouncingButtonWidget(
-            buttonName: 'Add',
+            buttonName: context.t.matches.new_match_mbs[4],
             checkEmpty: providerMatches.checkAnyControllerEmpty,
             onPress: () {
-               providerMatches.addMatches();
+              providerMatches.addMatches();
               Navigator.pop(context);
               providerMatches.clearTextControllers();
             },

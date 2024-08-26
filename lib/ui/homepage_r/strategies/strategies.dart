@@ -5,6 +5,7 @@ import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/strategies/strategies_item.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/strategies_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/strategies/add_new_strategy.dart';
 import 'package:quick_workout/ui/homepage_r/strategies/strategies_widgets/strategies_listview_item.dart';
 import 'package:quick_workout/widgets/homepage/app_mbsheet.dart';
@@ -28,7 +29,7 @@ class Strategies extends StatelessWidget {
           children: [
             AppBarWIdget(
                 provider: providerStrategies,
-                title: 'Strategies',
+                title: context.t.strategies.appbar,
                 onPress: () {
                   providerStrategies.clearTextControllers();
                   showAppModalBottomSheet(
@@ -38,8 +39,8 @@ class Strategies extends StatelessWidget {
                       ));
                 }),
             items.isEmpty
-                ? const EmptyScreenWidget(
-                    screenName: 'strategies',
+                ? EmptyScreenWidget(
+                    text: context.t.strategies.empty_screen[1],
                     svgAssetName: AppSvgs.strategiesEmpty)
                 : Flexible(
                     child: Padding(

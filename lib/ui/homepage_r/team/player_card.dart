@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_workout/features/models/team/player_info.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/team_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/team/edit_player.dart';
 import 'package:quick_workout/widgets/homepage/app_mbsheet.dart';
 import 'package:quick_workout/widgets/homepage/circle_avatar.dart';
@@ -28,7 +29,7 @@ class PlayerCard extends StatelessWidget {
     final providerTeam = context.watch<TeamProvider>();
     final List<PlayerInfo> cards =
         providerTeam.box.values.cast<PlayerInfo>().toList();
-
+    final bool checkIndex = index == cards.length;
     return Column(
       children: [
         Padding(
@@ -36,18 +37,18 @@ class PlayerCard extends StatelessWidget {
           child: CircleAvatarWidget(
             width: 120.w,
             height: 120.w,
-            image: cards.isEmpty ? null : cards[index].avatar,
+            image: checkIndex ? null : cards[index].avatar,
           ),
         ),
         TextMain22Widget(
           maxLines: 1,
-          textMain: cards.isEmpty ? 'empty' : cards[index].playerName,
+          textMain: checkIndex ? 'empty' : cards[index].playerName,
         ),
         SizedBox(
           height: 4.h,
         ),
         TextSecond15Widget(
-          text: cards.isEmpty ? 'empty' : cards[index].playerPosition,
+          text: checkIndex ? 'empty' : cards[index].playerPosition,
           maxLines: 1,
           textOverflow: TextOverflow.ellipsis,
         ),
@@ -58,8 +59,8 @@ class PlayerCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: PlayerCardAgeSalaryWidget(
-                  title: 'Age',
-                  text: cards.isEmpty ? 'empty' : cards[index].playerAge,
+                  title: context.t.team.player_mbs[0],
+                  text: checkIndex ? 'empty' : cards[index].playerAge,
                 ),
               ),
               SizedBox(
@@ -68,17 +69,15 @@ class PlayerCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: PlayerCardAgeSalaryWidget(
-                  title: 'Salary',
-                  text: cards.isEmpty
-                      ? 'empty'
-                      : '\$${cards[index].playerSalary}',
+                  title: context.t.team.player_mbs[1],
+                  text: checkIndex ? 'empty' : '\$${cards[index].playerSalary}',
                 ),
               ),
             ],
           ),
         ),
         PlayerCardInfoWidget(
-          info: cards.isEmpty ? 'empty' : cards[index].description,
+          info: checkIndex ? 'empty' : cards[index].description,
         ),
         Padding(
             padding: EdgeInsets.only(top: 24.h, bottom: 16.h),
@@ -90,7 +89,7 @@ class PlayerCard extends StatelessWidget {
               onPressDelete: () async {
                 bool? pop = await showDeleteConfirmation(context, () {
                   providerTeam.deleteItem(index);
-                }, 'Player data');
+                }, context.t.team.player_delete_confirmation[1]);
                 pop == true ? Navigator.pop(context) : null;
               },
             )),

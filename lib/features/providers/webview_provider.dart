@@ -8,7 +8,9 @@ class WebViewProvider extends ChangeNotifier {
   String _lastVisitedUrl = '';
   Future<void> setLink(String linkWebView) async {
     String url = '';
-    if (ServerResponse.serverResponse!.isResetLink) {
+    if (ServerResponse.serverResponse == null
+        ? true
+        : ServerResponse.serverResponse!.isResetLink) {
       box.put('lastVisitedUrl', linkWebView);
       url = box.get('lastVisitedUrl');
     } else {

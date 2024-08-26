@@ -5,6 +5,7 @@ import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/workout/workout_item.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/workout_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/workout/add_new_workout.dart';
 import 'package:quick_workout/ui/homepage_r/workout/timepicker/time_picker.dart';
 import 'package:quick_workout/ui/homepage_r/workout/timepicker/time_picker_mbsheet.dart';
@@ -34,7 +35,7 @@ class Workout extends StatelessWidget {
           children: [
             AppBarWIdget(
                 provider: providerWorkout,
-                title: 'Workout',
+                title: context.t.workout.appbar,
                 onPress: () {
                   providerWorkout.clearTextControllers();
                   showAppModalBottomSheet(context, const AddNewWorkout());
@@ -55,7 +56,7 @@ class Workout extends StatelessWidget {
                             ));
                       },
                       child: StartEndOfTrainingWidget(
-                        text: 'Start of training',
+                        text: context.t.workout.time.start,
                         time: providerWorkout.box
                             .get('start', defaultValue: '00:00'),
                       ),
@@ -76,7 +77,7 @@ class Workout extends StatelessWidget {
                             ));
                       },
                       child: StartEndOfTrainingWidget(
-                        text: 'End of training',
+                        text: context.t.workout.time.end,
                         time: providerWorkout.box
                             .get('end', defaultValue: '00:00'),
                       ),
@@ -90,8 +91,9 @@ class Workout extends StatelessWidget {
               color: AppColors.separator,
             ),
             items.isEmpty
-                ? const EmptyScreenWidget(
-                    screenName: 'workouts', svgAssetName: AppSvgs.workoutEmpty)
+                ? EmptyScreenWidget(
+                    text: context.t.workout.empty_screen[1],
+                    svgAssetName: AppSvgs.workoutEmpty)
                 : Expanded(
                     child: Container(
                       clipBehavior: Clip.antiAlias,

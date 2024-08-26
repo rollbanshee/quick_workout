@@ -8,6 +8,7 @@ import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/strategies/strategies_item.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/strategies_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/strategies/edit_strategies.dart';
 import 'package:quick_workout/ui/homepage_r/strategies/strategies_widgets/row_delete_edit_strategies.dart';
 import 'package:quick_workout/widgets/homepage/app_mbsheet.dart';
@@ -30,6 +31,7 @@ class StrategiesCard extends StatelessWidget {
     final providerStrategies = context.watch<StrategiesProvider>();
     final List<StrategiesItem> items =
         providerStrategies.box.values.cast<StrategiesItem>().toList();
+    final bool checkIndex = index == items.length;
     return SafeArea(
       child: Stack(
         children: [
@@ -77,7 +79,7 @@ class StrategiesCard extends StatelessWidget {
                   onPressDelete: () async {
                     bool? pop = await showDeleteConfirmation(context, () {
                       providerStrategies.deleteItem(index);
-                    }, 'Your Strategy');
+                    }, context.t.strategies.delete[1]);
                     pop == true ? Navigator.pop(context) : null;
                   },
                 ),
@@ -91,15 +93,14 @@ class StrategiesCard extends StatelessWidget {
                       color: AppColors.primary),
                   child: TextMain13Widget(
                     maxLines: 1,
-                    text: items.isEmpty
-                        ? 'Abbreviation'
-                        : items[index].abbreviation,
+                    text:
+                        checkIndex ? 'Abbreviation' : items[index].abbreviation,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 6.h, bottom: 20.h),
                   child: TextMain22Widget(
-                    textMain: items.isEmpty ? 'Title' : items[index].title,
+                    textMain: checkIndex ? 'Title' : items[index].title,
                     maxLines: 2,
                   ),
                 ),
@@ -108,7 +109,7 @@ class StrategiesCard extends StatelessWidget {
                         physics: const BouncingScrollPhysics(),
                         controller: scrollController,
                         child: TextSecond15Widget(
-                            text: items.isEmpty ? 'Text' : items[index].text))),
+                            text: checkIndex ? 'Text' : items[index].text))),
               ],
             ),
           ),

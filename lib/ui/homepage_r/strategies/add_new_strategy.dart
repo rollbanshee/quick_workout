@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/strategies_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/bouncing_button/bouncing_button_widget.dart';
 import 'package:quick_workout/widgets/homepage/textfield.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main17.dart';
@@ -16,9 +17,9 @@ class AddNewStrategy extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 11.h),
-          child: const TextMain17Widget(
+          child: TextMain17Widget(
             maxLines: 1,
-            text: 'New Strategy',
+            text: context.t.strategies.new_strategy_mbs[0],
           ),
         ),
         Padding(
@@ -26,25 +27,25 @@ class AddNewStrategy extends StatelessWidget {
           child: TextFieldWidget(
               onChanged: providerStrategies.checkControllerEmpty,
               controller: providerStrategies.controllerTitle,
-              hintText: 'Title',
+              hintText: context.t.strategies.new_strategy_mbs[1],
               maxLines: 1),
         ),
         TextFieldWidget(
             onChanged: providerStrategies.checkControllerEmpty,
             controller: providerStrategies.controllerAbbreviation,
-            hintText: 'Abbreviation',
+            hintText: context.t.strategies.new_strategy_mbs[2],
             maxLines: 1),
         Padding(
           padding: EdgeInsets.only(top: 16.h, bottom: 24.h),
           child: TextFieldWidget(
               onChanged: providerStrategies.checkControllerEmpty,
               controller: providerStrategies.controllerText,
-              hintText: 'Text',
+              hintText: context.t.strategies.new_strategy_mbs[3],
               maxLines: 10),
         ),
         BouncingButtonWidget(
             checkEmpty: providerStrategies.checkAnyControllerEmpty,
-            buttonName: 'Add',
+            buttonName: context.t.strategies.new_strategy_mbs[4],
             onPress: () {
               providerStrategies.addStrategies();
               Navigator.pop(context);

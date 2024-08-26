@@ -5,6 +5,7 @@ import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/models/matches/matches_item.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/matches_provider.dart';
 import 'package:quick_workout/features/resources/resources.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/matches/matches_widgets/matches_listview_item.dart';
 import 'package:quick_workout/ui/homepage_r/matches/matches_widgets/winning_currency.dart';
 import 'package:quick_workout/ui/homepage_r/matches/new_match.dart';
@@ -29,7 +30,7 @@ class Matches extends StatelessWidget {
           children: [
             AppBarWIdget(
                 provider: providerMatches,
-                title: 'Matches',
+                title: context.t.matches.appbar,
                 onPress: () {
                   showAppModalBottomSheet(context, const NewMatch());
                 }),
@@ -45,8 +46,9 @@ class Matches extends StatelessWidget {
               ),
             ),
             items.isEmpty
-                ? const EmptyScreenWidget(
-                    screenName: 'matches', svgAssetName: AppSvgs.matchesEmpty)
+                ? EmptyScreenWidget(
+                    text: context.t.matches.empty_screen[1],
+                    svgAssetName: AppSvgs.matchesEmpty)
                 : Flexible(
                     child: ListView.builder(
                         itemCount: items.length,

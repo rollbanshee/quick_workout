@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/widgets/text_widgets/text_main22.dart';
 import 'package:quick_workout/widgets/text_widgets/text_second13.dart';
 
@@ -21,11 +22,11 @@ class WinningCurrency extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TextSecond13Widget(text: 'Winning currency'),
+              TextSecond13Widget(text: context.t.matches.currency[0]),
               SizedBox(
                 height: 4.h,
               ),
-              const TextMain22Widget(textMain: 'EUR/USD', maxLines: 1)
+              TextMain22Widget(textMain: context.t.matches.currency[1], maxLines: 1)
             ],
           ),
           // BouncingButton(

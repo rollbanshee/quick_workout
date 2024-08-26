@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quick_workout/features/constants/app_colors.dart';
 import 'package:quick_workout/features/providers/homepage_r_provider/workout_provider.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/ui/homepage_r/workout/edit_workout.dart';
 import 'package:quick_workout/widgets/homepage/app_mbsheet.dart';
 import 'package:quick_workout/widgets/homepage/delete_cancel_mbsheet.dart';
@@ -61,7 +62,7 @@ Future<dynamic> showWorkoutCardModalBottomSheet(
                       onPressDelete: () async {
                         bool? pop = await showDeleteConfirmation(context, () {
                           providerWorkout.deleteItem(index);
-                        }, 'Your workout');
+                        }, context.t.workout.delete[1]);
                         pop == true ? Navigator.pop(context) : null;
                       },
                     ),

@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:quick_workout/features/resources/resources.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:quick_workout/i18n/strings.g.dart';
 import 'package:quick_workout/main_features_imports.dart';
 import 'package:quick_workout/ui/webview/webview.dart';
 import 'package:share_plus/share_plus.dart';
@@ -11,12 +12,18 @@ import 'package:share_plus/share_plus.dart';
 class SettingsProvider extends ChangeNotifier {
   final Map<String, dynamic> mapItems = {
     'icons': [AppSvgs.usagePolicy, AppSvgs.shareApp, AppSvgs.rateUs],
-    'labels': ['Usage Policy', 'Share App', 'Rate Us']
+    // 'labels': t.settings.items
   };
 
-  final InAppReview inAppReview = InAppReview.instance;
+  final box = Hive.box('others');
 
-  void openInAppReview() async {}
+  void changeLang(String lang) {
+    LocaleSettings.setLocaleRaw(lang);
+    box.put('lang', lang);
+    notifyListeners();
+  }
+
+  final InAppReview inAppReview = InAppReview.instance;
 
   void callActions(
       int index, BuildContext context, WebViewProvider provider) async {
